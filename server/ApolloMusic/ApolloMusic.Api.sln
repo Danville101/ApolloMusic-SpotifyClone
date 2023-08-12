@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApolloMusic.Api", "ApolloMusic.Api.csproj", "{C1F57671-0818-47AF-93A2-2F4862422C1C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1F57671-0818-47AF-93A2-2F4862422C1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1F57671-0818-47AF-93A2-2F4862422C1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1F57671-0818-47AF-93A2-2F4862422C1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1F57671-0818-47AF-93A2-2F4862422C1C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A4D8278D-6044-4EF1-9B7B-08410ADA75B1}
+	EndGlobalSection
+EndGlobal

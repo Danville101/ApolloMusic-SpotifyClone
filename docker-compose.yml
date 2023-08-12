@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - 27017:27017
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+  server:
+    build: ./server
+    ports:
+      - '5221:5221'
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - MONGODB_URI=mongodb://root:example@mongo:27017/
+      - DOTNET_RUNNING_IN_CONTAINER=true
+    restart: always
+    depends_on:
+      - mongo
+  client:
+    build: ./client
+    command: npm run dev
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+volumes:
+  mongodb_data:
