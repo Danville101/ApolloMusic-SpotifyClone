@@ -34,7 +34,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       policy =>
-                      { 
+                      {
                           policy.WithOrigins("http://localhost:3000").AllowAnyHeader()
                                                   .AllowAnyMethod().AllowCredentials();
                       });
@@ -43,7 +43,7 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 app.UseCors(MyAllowSpecificOrigins);
-
+app.UseExceptionHandler ("/api/errors");
 app.UseStaticFiles(); // Enables the static file middleware to serve files from wwwroot folder by default.
 app.UseHttpLogging();
 
@@ -133,11 +133,13 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+
 app.MapControllers();
 
 Console.WriteLine(Environment.GetEnvironmentVariable("MONGODB_URI"));
 
 var host = "http://*:5221"; // if not wildcard your in TROUBLE!!!!!!
+var hostLocal = "http://localhost:5221";
 
-app.Run(host);
+app.Run(hostLocal);
 
