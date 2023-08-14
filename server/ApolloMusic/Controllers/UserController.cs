@@ -36,7 +36,16 @@ namespace ApolloMusic.Api.Controllers
         {
             var user = await _userRepo.GetByIdAsync(id);
 
-            return Ok(user);
+            
+            
+
+            if(user  == null){
+                       return BadRequest("No user with that id");  
+            }else{
+           return Ok(user);
+            }
+
+        
         }
 
 
