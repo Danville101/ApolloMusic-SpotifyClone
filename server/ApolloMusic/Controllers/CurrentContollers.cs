@@ -8,7 +8,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
 
-namespace ApolloMusic.Controllers
+namespace ApolloMusic.Api.Controllers
 {  
 
     [ApiController]

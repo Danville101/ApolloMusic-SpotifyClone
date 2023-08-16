@@ -39,7 +39,7 @@ namespace ApolloMusic.Api.Service
             throw new NotImplementedException();
         }
 
-        public async Task<User?> GetByEmailAsync(string email)
+        public async Task<User?>  GetByEmailAsync(string email)
         {
             var user = await _userCollection.Find(x => x.Email == email).FirstOrDefaultAsync();
 

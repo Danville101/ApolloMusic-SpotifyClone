@@ -6,6 +6,7 @@ using ApolloMusic.Api.Service;
 using ApolloMusic.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 using BCrypt.Net;
+using MongoDB.Bson;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -34,13 +35,18 @@ namespace ApolloMusic.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetUser(string id)
         {
+
+            if (!ObjectId.TryParse(id, out ObjectId objectId))
+            {
+                return BadRequest($"{id} not valid id");
+            }
             var user = await _userRepo.GetByIdAsync(id);
 
             
             
 
             if(user  == null){
-                       return BadRequest("No user with that id");  
+                       return BadRequest($"No user with that id {id}");  
             }else{
            return Ok(user);
             }
@@ -50,10 +56,20 @@ namespace ApolloMusic.Api.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> CreateUser( UserRquestInPut newUser) {
+        public async Task<IActionResult> CreateUser(  UserRquestInPut newUser) {
+
+            if (!ModelState.IsValid)
+            {
+                BadRequest(ModelState);
+                
+            }
 
             var user = newUser;
             var existUser = await _userRepo.GetByEmailAsync(newUser.Email);
+            if (existUser != null)
+            {
+                return BadRequest("User already exist");
+            }
 
             if (newUser.Password == newUser.Password2 && existUser is null)
             {

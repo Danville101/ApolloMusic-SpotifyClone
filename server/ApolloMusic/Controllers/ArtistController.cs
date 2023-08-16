@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using ApolloMusic.Api.Service;
 using ApolloMusic.Api.Models;
 
-namespace ApolloMusic.Controllers
+namespace ApolloMusic.Api.Controllers
 {  
 
     [ApiController]

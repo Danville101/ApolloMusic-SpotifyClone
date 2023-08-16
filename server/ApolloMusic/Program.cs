@@ -141,5 +141,5 @@ Console.WriteLine(Environment.GetEnvironmentVariable("MONGODB_URI"));
 var host = "http://*:5221"; // if not wildcard your in TROUBLE!!!!!!
 var hostLocal = "http://localhost:5221";
 
-app.Run(hostLocal);
+app.Run(host);
 

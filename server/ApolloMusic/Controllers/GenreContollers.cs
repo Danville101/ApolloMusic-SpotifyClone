@@ -4,7 +4,7 @@ using ApolloMusic.Api.Models;
 using ApolloMusic.Service;
 using ApolloMusic.Models;
 
-namespace ApolloMusic.Controllers
+namespace ApolloMusic.Api.Controllers
 {  
 
     [ApiController]
