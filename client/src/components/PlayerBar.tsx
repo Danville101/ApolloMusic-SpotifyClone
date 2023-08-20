@@ -13,8 +13,9 @@ import { useRouter } from 'next/router'
 
 
 
+
 const PlayBar = ({tracks}:any) => {
-  
+  const audioRef = useRef(null)
   const { trackAdded , setTrackAdded}:any = useContext(MusicContext)
   const [data, setData] = useState("")
   const [isLoading, setLoading] = useState(true)
@@ -31,12 +32,16 @@ const PlayBar = ({tracks}:any) => {
     })
       .then((res) => res.json())
       .then((response) => {
+      
         setData(response.tracks[currentPlay])
         setLoading(false)
-        localStorage.setItem("DurationInSec", response.tracks[currentPlay].DurationInSec)
+        audioRef.current.currenttime = 0
+        setAcutallTime(0)
+        setIntialStart(0)
+      
 
       })
-      
+ 
       
   }, [trackAdded, currentPlay])
 
@@ -47,7 +52,7 @@ const PlayBar = ({tracks}:any) => {
      const [mute , setMute]= useState(false)
      const [volume , setVolume]= useState(0.5)
 
-     const audioRef = useRef(null)
+
      
      const [play, setPlay] = useState(false)
      //const timmy = new Date(data.duration)

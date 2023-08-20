@@ -2,6 +2,7 @@
 using ApolloMusic.Api.Service;
 using ApolloMusic.Service;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.HttpLogging;
 using System;
 using DotNetEnv;
 Env.Load();
@@ -9,6 +10,15 @@ Env.Load();
 var builder = WebApplication.CreateBuilder(args);
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 // Add services to the container.
+builder.Services.AddHttpLogging(options =>
+{
+    options.LoggingFields = HttpLoggingFields.RequestPath;
+
+
+    ; options.RequestBodyLogLimit = 4096; // default is 32k options.ResponseBodyLogLimit = 4096; // default is 32k
+});
+
+
 builder.Services.Configure<ApolloMusicDatabaseSetting>(
     builder.Configuration.GetSection("ApolloMusicDatabase"));
 
@@ -42,6 +52,7 @@ builder.Services.AddCors(options =>
 
 
 var app = builder.Build();
+app.UseHttpLogging();
 app.UseCors(MyAllowSpecificOrigins);
 app.UseExceptionHandler ("/api/errors");
 app.UseStaticFiles(); // Enables the static file middleware to serve files from wwwroot folder by default.
