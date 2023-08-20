@@ -35,11 +35,18 @@ const PlayBar = ({tracks}:any) => {
       
         setData(response.tracks[currentPlay])
         setLoading(false)
-        audioRef.current.currenttime = 0
+        if(audioRef.current){
+                  audioRef.current.currentTime = 0
+        }
+
         setAcutallTime(0)
         setIntialStart(0)
+        
       
 
+      }).then(()=>{
+        setAcutallTime(Number(localStorage.getItem('CurrentTime')))
+        setIntialStart(Number(localStorage.getItem('CurrentTime')))    ///Fixed raloding issued
       })
  
       
