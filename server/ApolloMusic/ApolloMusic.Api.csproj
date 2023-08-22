@@ -30,6 +30,7 @@
     <None Remove="Upload\" />
     <None Remove="Upload\Audio\" />
     <None Remove="Upload\Images\" />
+    <None Remove="Utils\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Service\" />
@@ -37,5 +38,6 @@
     <Folder Include="Upload\" />
     <Folder Include="Upload\Audio\" />
     <Folder Include="Upload\Images\" />
+    <Folder Include="Utils\" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,6 @@
 ﻿using ApolloMusic.Api.Models;
 using ApolloMusic.Api.Service;
+using ApolloMusic.Api.Utils;
 using ApolloMusic.Service;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.AspNetCore.HttpLogging;
@@ -40,6 +41,8 @@ builder.Services.AddSingleton<IArtistRepository, ArtistRepository>();
 builder.Services.AddSingleton<IGenreRepository, GenreRepository>();
 builder.Services.AddSingleton<ICurrentRepository, CurrentRepository>();
 builder.Services.AddSingleton<ISearchRepository, SearchRepository>();
+
+builder.Services.AddSingleton<IJwtRepository, JwtRepository>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,

@@ -8,12 +8,16 @@ using ApolloMusic.Api.Service;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using ApolloMusic.Api.Utils;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using DotNetEnv;
 using System.Diagnostics;
+using Microsoft.Extensions.Hosting;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+
 
 namespace ApolloMusic.Api.Controllers
 
@@ -26,12 +30,15 @@ namespace ApolloMusic.Api.Controllers
     {
 
         private ILoginRepository _loginRepo;
-      
 
-        private readonly string? _secretKey = Environment.GetEnvironmentVariable("MY_SECERT");
-        public LoginController(ILoginRepository loginRepository)
-        {  Env.Load();
+
+        private  string? _secretKey;
+
+        public LoginController(ILoginRepository loginRepository , IJwtRepository jwtRepository)
+        {  
             _loginRepo = loginRepository;
+            _secretKey = jwtRepository.GetEnvironmentVariable();
+
         }
 
         [HttpPost]
