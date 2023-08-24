@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import LeftNav from '@/components/LeftNav'
 import {MdOutlineArrowBackIosNew, MdOutlineArrowForwardIos} from "react-icons/md"
 import TopNav from '@/components/TopNav'
-import FooterPlayBar from '@/components/FooterPlayBar'
 import LoginModal from '@/components/LoginModal'
 import { useState } from 'react'
 import { MusicContext } from '@/context/AudioContext'
@@ -10,7 +9,7 @@ import Login from '@/pages/login'
 
 
 
-const MainLayout = ({children}) => {
+const MainLayout = ({children}:any) => {
   const { loginModel, setLoginModel, modalTrackImage}:any = useContext(MusicContext)
   return (
     <div className='flex flex-col '>

@@ -16,7 +16,7 @@ const TrackIcon = ({track}:TrackProp) => {
   setLoginModel(true)
  }
 
- const addtrackHandler=(e)=>{
+ const addtrackHandler=(e:any)=>{
   if(loggedIn=="true"){
     addtrack(e)
   }else{

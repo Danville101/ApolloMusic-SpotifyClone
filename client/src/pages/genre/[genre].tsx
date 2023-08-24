@@ -6,6 +6,7 @@ import { NextPageContext } from 'next'
 import { useRouter } from 'next/router'
 import {CiClock2} from "react-icons/ci"
 import { MusicContext } from '../../context/AudioContext'
+import { Track, Tracks } from '../../../interfaces'
 
 
 
@@ -14,8 +15,8 @@ const Genre = () => {
   const { trackAdded , setTrackAdded}:any = useContext(MusicContext)
   const router = useRouter()
 
-  const genre = router.query.genre
-  const [song, setSong] = useState([])
+  const genre = router.query.genre as string
+  const [song, setSong] = useState<any >([])
 
   const [genres, setGenres] = useState([])
   const [loading, setLoading ] = useState(true)
@@ -29,25 +30,33 @@ const Genre = () => {
     setLoading(false)
     })
      
-  },[])
+  },[genre])
 
 
 
 
-     const [info, setInfo]=useState("")
-     const colourPicker ={
-          "Hip Hop" :"#E03400",
-          "Pop": "#283DA3", 
-         "Dancehall": "#7358FF", 
-         "R&B":"#1E8A07",
-         
-         "Rock": "#E8245B",
-         
-         "Soul" :"#166952",
-         
-         "Afro":"#2472EA" 
-       }
-
+     const [info, setInfo]=useState<any>("")
+     const colourPicker: {
+      [key: string]: string;
+      "Hip Hop": string;
+      Pop: string;
+      Dancehall: string;
+      "R&B": string;
+      Rock: string;
+      Soul: string;
+      Afro: string;
+  } = {
+    "Hip Hop" :"#E03400",
+    Pop: "#283DA3", 
+   Dancehall: "#7358FF", 
+   "R&B":"#1E8A07",
+   
+   Rock: "#E8245B",
+   
+   Soul :"#166952",
+   
+    Afro:"#2472EA" 
+  };
    
       
        const Addtrack = (e:any)=>{
@@ -94,7 +103,7 @@ const Genre = () => {
       
       <div
         className="flex   bg-fixed    bg-no-repeat bg-cover  bg-center  h-[50vh]  pl-20  rounded-md "
-        style={{backgroundColor: colourPicker[router.query.genre]}}
+        style={{backgroundColor: colourPicker[genre]}}
       >
        
       </div> 
@@ -133,7 +142,7 @@ const Genre = () => {
      </span>
      <p className='text-sm' >Date added</p>
   </div>
-{song.map((e,i)=>(
+{song.map((e:Track,i:number)=>(
   
 <div className='w-full items-center flex  group hover:bg-[#b3b3b3]/10 rounded-xl pb-2 px-4 py-2 hover:cursor-pointer' key={i}  >
      <p className='w-6 h-6 group-hover:hidden' >{i+1}</p>

@@ -21,20 +21,30 @@ const Search = () => {
       
    },[])
 
-   const colourPicker ={
-      "Hip Hop" :"#E03400",
-      "Pop": "#283DA3", 
-     'Dancehall': "#7358FF", 
-     "R&B":"#1E8A07",
-     
-     "Rock": "#E8245B",
-     
-     "Soul" :"#166952",
-     
-     "Afro":"#2472EA" 
-   }
 
- 
+
+   const colourPicker: {
+      [key: string]: string;
+      "Hip Hop": string;
+      Pop: string;
+      Dancehall: string;
+      "R&B": string;
+      Rock: string;
+      Soul: string;
+      Afro: string;
+  } = {
+    "Hip Hop" :"#E03400",
+    Pop: "#283DA3", 
+   Dancehall: "#7358FF", 
+   "R&B":"#1E8A07",
+   
+   Rock: "#E8245B",
+   
+   Soul :"#166952",
+   
+    Afro:"#2472EA" 
+  };
+   
 
   if(loading) return <div className='grid grid-cols-2 gap-4 mt-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6' >
    
@@ -51,7 +61,7 @@ const Search = () => {
      <p className='ml-2 text-2xl '>Browse all</p>
 
      <div className='grid grid-cols-2 gap-4 mt-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6'>
-{ genres.map((e,i)=>(
+{ genres.map((e:any,i:number)=>(
 <Link href={`/genre/${e.name}`} className={`w-40 h-40   rounded-md flex pt-4 px-4 text-2xl`} key={i} style={{backgroundColor: colourPicker[e.name]}}>
    <p>{e.name}</p>
 

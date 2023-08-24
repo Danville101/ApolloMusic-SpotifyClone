@@ -70,7 +70,7 @@ player.Seek(seek)
       <div className='flex flex-col space-y-4 bg-[#252525] rounded-md -mx-2 px-4 h-32 py-2'>
    <div className='flex flex-col space-y-2'>
           <p className='text-sm font-semibold'>Create your first playlist</p>
-      <p className='text-xs'>It's easy, we'll help you</p>
+      <p className='text-xs'>It&apos;s easy, we&apos;ll help you</p>
    </div>
 
 
@@ -79,8 +79,8 @@ player.Seek(seek)
       
       <div className='flex flex-col space-y-4 bg-[#252525] rounded-md -mx-2 px-4 h-32 py-2 '>
    <div className='flex flex-col space-y-2'>
-          <p className='text-sm font-semibold'>Let's find some podcast to follow</p>
-      <p className='text-xs'>Wee'll keep you updated on new episods</p>
+          <p className='text-sm font-semibold'>Let&apos;s find some podcast to follow</p>
+      <p className='text-xs'>We&apos;ll keep you updated on new episods</p>
    </div>
 
 

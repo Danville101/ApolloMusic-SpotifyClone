@@ -5,10 +5,14 @@ export interface Track {
         title: string
         song: string
         artist: string
+        artistId:string
         trackImage: string | StaticImport
-        genre: string
+        genre: string,
         plays: number,
+        durationInMilliSec: number
+        durationInSec: number
         createdDate: Date| null
+        duration:string
 }
 
 export interface TrackProps{
@@ -39,9 +43,10 @@ interface Head{
      Title: string,
      Song: string,
      Artist:string,
-         TrackImage:string,
+   TrackImage:string,
      Genre: string,
      Duration:string
    },
    next : Head
 }
+

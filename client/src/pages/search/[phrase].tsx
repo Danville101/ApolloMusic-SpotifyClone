@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import Image from 'next/image'
 import { BsPlayFill } from 'react-icons/bs'
 import { MusicContext } from '../../context/AudioContext'
+import { Track } from '../../../interfaces'
 const SearchResults = () => {
 
 
@@ -12,7 +13,7 @@ const SearchResults = () => {
      const router = useRouter()
   
 
-     const [data, setData] = useState([])
+     const [data, setData] = useState<any>([])
      const [loading, setLoading ] = useState(true)
    
      const phrase = router.query.phrase
@@ -34,7 +35,7 @@ const SearchResults = () => {
         },[phrase])
 
   const { trackAdded , setTrackAdded}:any = useContext(MusicContext)
-  const [info, setInfo]=useState("")
+  const [info, setInfo]=useState<any>("")
 
            
        const Addtrack = (e:any)=>{
@@ -74,7 +75,7 @@ const SearchResults = () => {
   return (
      <MainLayout>
           <div className='flex flex-col pt-20 mx-4'>
-               <div className='flex space-x-4 w-full h-72 overflow-hidden'>
+               <div className='flex w-full space-x-4 overflow-hidden h-72'>
                 <div className='flex flex-col space-y-4'>
                     <p className={`text-2xl ${!data.Artist[0]?"hidden":""}` } >Artist</p>
                                 <ArtistIcon artist={data.Artist[0]} />
@@ -82,10 +83,10 @@ const SearchResults = () => {
                   
                 
                
-<div className='flex flex-col  space-y-4'>
+<div className='flex flex-col space-y-4'>
 <p className="text-2xl" >Song</p>
 <div>
-    {data.Song.map((e,i)=>
+    {data.Song.map((e:Track,i:number)=>
    { if (i<4) {
      
      return (
@@ -119,7 +120,7 @@ const SearchResults = () => {
        </div>
   
   
-       <span className=' flex items-center justify-center '>
+       <span className='flex items-center justify-center '>
        <p className='text-sm text-left' >{String(e.duration).substring(3,8)}</p>
        </span>
    

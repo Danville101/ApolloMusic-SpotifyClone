@@ -23,7 +23,7 @@ const SignUp = () => {
       
       const dateOfBirth=`${birthYear}-${birthMonth}-${birthDay}`
 
-      const inputNametHandler=(e)=>{
+      const inputNametHandler=(e:any)=>{
         if (e.target.value.length == 0) {
           setUserNameClickState(true)
         }else{
@@ -32,7 +32,7 @@ const SignUp = () => {
 
       }
     
-      const inputEmailtHandler=(e)=>{
+      const inputEmailtHandler=(e:any)=>{
         if (e.target.value.length == 0) {
           setEmailClickState(true)
         }else{
@@ -41,7 +41,7 @@ const SignUp = () => {
 
       }
     
-      const inputPasswrodtHandler=(e)=>{
+      const inputPasswrodtHandler=(e:any)=>{
         if (e.target.value.length == 0) {
           setPasswordClickState(true)
         }else{
@@ -50,7 +50,7 @@ const SignUp = () => {
 
       }
     
-      const inputPassword2tHandler=(e)=>{
+      const inputPassword2tHandler=(e:any)=>{
         if (e.target.value.length == 0) {
           setPassword2ClickState(true)
         }else{

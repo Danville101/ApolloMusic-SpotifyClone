@@ -9,15 +9,15 @@ import {} from "react-icons/md"
 import Image from 'next/image';
 import { MusicContext } from '@/context/AudioContext'
 import { useRouter } from 'next/router'
-
+import { Track } from '../../interfaces'
 
 
 
 
 const PlayBar = ({tracks}:any) => {
-  const audioRef = useRef(null)
+  const audioRef = useRef<HTMLAudioElement>(null)
   const { trackAdded , setTrackAdded}:any = useContext(MusicContext)
-  const [data, setData] = useState("")
+  const [data, setData] = useState<any>("")
   const [isLoading, setLoading] = useState(true)
   const [acutalTime, setAcutallTime] = useState(0)
   const router = useRouter()
@@ -34,6 +34,7 @@ const PlayBar = ({tracks}:any) => {
       .then((response) => {
       
         setData(response.tracks[currentPlay])
+        console.log("check me",response.tracks[currentPlay])
         setLoading(false)
         if(audioRef.current){
                   audioRef.current.currentTime = 0
@@ -84,7 +85,7 @@ const PlayBar = ({tracks}:any) => {
           
         };
      
-        function secondsToTime(seconds) {
+        function secondsToTime(seconds:number) {
           const minutes = Math.floor((seconds % 3600) / 60);
           const remainingSeconds = seconds % 60;
         
@@ -116,7 +117,10 @@ const PlayBar = ({tracks}:any) => {
       localStorage.setItem("MemoTime", "0") 
       localStorage.setItem("play","true")
       setIntialStart(0)
-      audioRef.current.currentTime = 0
+      if(audioRef.current){
+            audioRef.current.currentTime = 0
+      }
+  
 
     }
 
@@ -126,7 +130,9 @@ const PlayBar = ({tracks}:any) => {
       localStorage.setItem("MemoTime", "0") 
       localStorage.setItem("play","true")
       setIntialStart(0)
-      audioRef.current.currentTime = 0
+      if( audioRef.current){
+           audioRef.current.currentTime = 0   
+      }
       setCurrentPlay(currentPlay +1)
      
       
@@ -144,8 +150,9 @@ const PlayBar = ({tracks}:any) => {
   const [seekTime,setSeekTime]=useState(0)
 
   const handleSeek =(event:any)=>{
-     audioRef.current.currentTime = event.target.value;
-  
+    if( audioRef.current){
+        audioRef.current.currentTime = event.target.value;
+    }
      secondsToTime(Number(event.target.value))
      setIntialStart(Number(event.target.value))
      setAcutallTime(Number(event.target.value))
@@ -155,7 +162,11 @@ const PlayBar = ({tracks}:any) => {
   }
         
   const handleVolume =(event:any)=>{
-     audioRef.current.volume = event.target.value;
+    
+    if( audioRef.current){
+           audioRef.current.volume = event.target.value;
+    }
+
      setVolume(event.target.value);
   
    
@@ -169,14 +180,17 @@ const PlayBar = ({tracks}:any) => {
   
    const handleMute =()=>{
      setMute(true)
+     if( audioRef.current){
      audioRef.current.muted = true
-     
+     }     
    }
    const handleNotMute =()=>{
      setMute(false)
-     audioRef.current.muted = false
+     if( audioRef.current){
+     audioRef.current.muted = false}
      setVolume(0.1)
-     audioRef.current.volume  = 0.1
+     if( audioRef.current){
+     audioRef.current.volume  = 0.1}
      
    }
 
@@ -184,11 +198,17 @@ const PlayBar = ({tracks}:any) => {
 
    const handleRepeat=()=>{
  setLooped(true)
-    audioRef.current.loop = true
+ if(audioRef.current){
+     audioRef.current.loop = true
+ }
+ 
    }
    const handleRepeatFalse=()=>{
  setLooped(false)
-    audioRef.current.loop = false
+ if(audioRef.current){
+  audioRef.current.loop = false
+ }
+    
    }
 
 
@@ -201,8 +221,9 @@ const PlayBar = ({tracks}:any) => {
 
   if(localStorage.getItem("play") == "true"){
     if(audioRef.current){
+      
       audioRef.current.play()
-      audioRef.current.currentTime = localStorage.getItem("CurrentTime")
+     audioRef.current.currentTime = Number(localStorage.getItem("CurrentTime"))
       
     }
     setPlay(true)
@@ -211,7 +232,7 @@ const PlayBar = ({tracks}:any) => {
   if(localStorage.getItem("play") == "false"){
     if(audioRef.current){
       audioRef.current.pause()
-      audioRef.current.currentTime = localStorage.getItem("CurrentTime")
+      audioRef.current.currentTime = Number(localStorage.getItem("CurrentTime"))
     
     }
       setPlay(false)
@@ -314,7 +335,7 @@ localStorage.setItem("CurrentTime", String(intialStart)) /// Coausing Relaod
            
   
   
-            <div className='flex flex-col items-center ' onDoubleClick={()=>setTimeinSec(10)}>
+            <div className='flex flex-col items-center ' >
                  <div className='flex items-center mt-4 space-x-4' >
                   <button>
                      <CiShuffle className="text-white duration-700 w-7 h-7 opacity-60 hover:opacity-100 " />

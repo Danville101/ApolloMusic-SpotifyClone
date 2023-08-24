@@ -3,7 +3,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { MusicContext } from '@/context/AudioContext'
 
-const LoginModal = ({trackImage}) => {
+
+interface MovieProps {
+     trackImage: string;
+   
+ }
+ 
+
+const LoginModal = ({trackImage}:MovieProps) => {
 
      const { loginModel, setLoginModel, modalTrackImage}:any = useContext(MusicContext)
      

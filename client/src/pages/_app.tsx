@@ -1,7 +1,6 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import MusicProvider from '../context/AudioContext'
-import FooterPlayBar from '@/components/FooterPlayBar'
 import PlayBar from '@/components/PlayerBar'
 import { ImVolumeHigh, ImVolumeLow, ImVolumeMedium } from 'react-icons/im'
 import { AiFillPauseCircle } from 'react-icons/ai'

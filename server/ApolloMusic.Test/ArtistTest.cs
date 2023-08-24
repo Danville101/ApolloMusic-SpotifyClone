@@ -18,7 +18,7 @@ namespace ApolloMusic.Test;
 
 
 [TestClass]
-public class UserTest
+public class ArtistTest
 {
     private Mock<IUserRepository> _userRepository;
     private Fixture _fixture;
@@ -28,7 +28,7 @@ public class UserTest
     private Mock<ILoginRepository> _loginRepository;
     private Mock<IJwtRepository> _env;
 
-    public UserTest()
+    public ArtistTest()
     {
         _fixture = new Fixture();
         _userRepository = new Mock<IUserRepository>();
@@ -44,13 +44,13 @@ public class UserTest
         user.Id = "64c911163a487b00cc2f36e6";
         _userRepository.Setup((x) => x.GetByIdAsync(user.Id)).Returns(Task.FromResult(user));
 
-        _controller = new UserController(_userRepository.Object , _currentRepository.Object);
+        _controller = new UserController(_userRepository.Object, _currentRepository.Object);
 
         var results = await _controller.GetUser(user.Id);
 
 
         Console.WriteLine($"User:{user}, Resutls:{results}");
-       // Assert.AreEqual(user, resutls);
+        // Assert.AreEqual(user, resutls);
 
         Assert.IsInstanceOfType(results, typeof(OkObjectResult));
 
@@ -90,7 +90,7 @@ public class UserTest
         Assert.IsNotNull(result);
         Assert.AreEqual(StatusCodes.Status200OK, result.StatusCode);
 
-       
+
 
 
     }

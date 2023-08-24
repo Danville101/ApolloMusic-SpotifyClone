@@ -1,8 +1,14 @@
 import React , {createContext,  useState, useEffect} from 'react'
 import Cookies from 'js-cookie'
+interface MusicContextType {
+  setModalTrackImage: (image: string) => void;
+  setLoginModel: (login: boolean) => void;
+  setTrackAdded: (added: boolean) => void;
 
+  // Add more properties if needed
+}
 
-export const MusicContext = createContext({})
+export const MusicContext = createContext<any>({});
 
 
 const MusicProvider = ({children}:any) => {

@@ -10,7 +10,7 @@ const Artist = () => {
   const router = useRouter()
   
 
-  const [artist, setArtist] = useState([])
+  const [artist, setArtist] = useState<any>([])
   const [loading, setLoading ] = useState(true)
 
   const id = router.query.id
@@ -47,7 +47,7 @@ const Artist = () => {
 >
  
 </div> 
-<div className="pl-5 text-6xl font-bold text-white  rounded-xl -translate-y-52">
+<div className="pl-5 text-6xl font-bold text-white rounded-xl -translate-y-52">
   <p className='text'>
         Buss Head
   </p>
@@ -58,18 +58,18 @@ const Artist = () => {
 <div className='px-4 -mt-8'>
   
    <div className='flex items-center space-x-2'>
-  <button className=' flex items-center justify-center w-12 h-12 rounded-full   bg-brandColor '>
+  <button className='flex items-center justify-center w-12 h-12 rounded-full bg-brandColor'>
       <BsPlayFill className="w-8 h-8 text-black"/>
      </button>
 
-     <button className='px-4 py-2 border border-white/50 rounded-full text-sm'>
+     <button className='px-4 py-2 text-sm border rounded-full border-white/50'>
       Follow
      </button>
   </div>
 <div className="max-w-lg ">
   
  
-  <p className="mb-4 mt-20">
+  <p className="mt-20 mb-4">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat a
     magna non varius. Proin leo felis, euismod non porta eget, varius sit amet
     sapien. Maecenas in nulla at leo convallis consectetur id a sapien. Nulla
