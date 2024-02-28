@@ -32,10 +32,13 @@ This guide provides instructions for running our application using dotnet and np
 
 4. **npm Verification:**
    - After installing Node.js, verify that npm is installed by opening your terminal or command prompt and running the following command:
-     ```bash
+
+```bash
      npm --version
-     ```
-     This command should display the installed version of npm.
+```
+
+
+This command should display the installed version of npm.
 
 Ensure that you have met these prerequisites before attempting to use the .NET CLI or npm for development or deployment purposes. Following these steps will help ensure a smooth setup and usage experience for both tools.
 
@@ -70,5 +73,7 @@ Ensure that you have met these prerequisites before attempting to use the .NET C
 4.**Access the Application:**
  
  Open your web browser and navigate to  [http://localhost:3000](http://localhost:3000)
+
+ ***Email: danville.wilks@gmail.com to request mongodburi***
 
 >Thanks for visiting  
