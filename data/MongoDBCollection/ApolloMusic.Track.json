@@ -1,0 +1,153 @@
+[{
+  "_id": {
+    "$oid": "64bd42182046c3c088569487"
+  },
+  "Title": "Big Head",
+  "Song": "http://localhost:5221/tracks638257252246766100.m4a",
+  "Artist": "Villa",
+  "TrackImage": "http://loclhost:5221/images638257252246910090.jpg",
+  "Genre": "Dancehall",
+  "Plays": 0,
+  "CreatedDate": null
+},
+{
+  "_id": {
+    "$oid": "64bd43362046c3c088569488"
+  },
+  "Title": "Bus Head",
+  "Song": "http://localhost:5221/tracks638257255104824850.mp3",
+  "Artist": "Ragga B",
+  "TrackImage": "http://loclhost:5221/images638257255105159220.jpg",
+  "Genre": "Dancehall",
+  "Plays": 0,
+  "CreatedDate": null
+},
+{
+  "_id": {
+    "$oid": "64bd435f383ecfab9b0dbb87"
+  },
+  "Title": "Bus Head",
+  "Song": "http://localhost:5221/tracks/638257255513005270.mp3",
+  "Artist": "Ragga B",
+  "TrackImage": "http://loclhost:5221/images/638257255513365440.jpg",
+  "Genre": "Dancehall",
+  "Plays": 0,
+  "CreatedDate": null
+},
+{
+  "_id": {
+    "$oid": "64bd44e0f713042b6901eb99"
+  },
+  "Title": "Bus Head",
+  "Song": "http://localhost:5221/tracks/638257259368724130.mp3",
+  "Artist": "Ragga B",
+  "TrackImage": "http://localhost:5221/images/638257259368799430.jpg",
+  "Genre": "Dancehall",
+  "Plays": 0,
+  "CreatedDate": null
+},
+{
+  "_id": {
+    "$oid": "64bfa64fb939d2649c27e752"
+  },
+  "Title": "Bus Head 2",
+  "Song": "http://localhost:5221/tracks/638258819516753670.mp3",
+  "Artist": "Ragga B",
+  "TrackImage": "http://localhost:5221/images/638258819517006620.jpg",
+  "Genre": "Dancehall",
+  "Duration": "00:00:19.3321666",
+  "Plays": 0,
+  "CreatedDate": null
+},
+{
+  "_id": {
+    "$oid": "64c16a0d4f37ccfa34e2bb03"
+  },
+  "Title": "Bus Head 3",
+  "Song": "http://localhost:5221/tracks/638259975972711890.mp3",
+  "Artist": "Ragga B",
+  "TrackImage": "http://localhost:5221/images/638259975973068960.jpg",
+  "Genre": "Dancehall",
+  "Duration": "00:00:18.3321666",
+  "DurationInSec": 18,
+  "Plays": 0,
+  "CreatedDate": null,
+  "DurationInMilliSec": 18000
+},
+{
+  "_id": {
+    "$oid": "64c40c82d774a8a972abb498"
+  },
+  "Title": "Wouldn’t Leave",
+  "Song": "http://localhost:5221/tracks/638261702561692480.mp3",
+  "Artist": "Kanye West",
+  "TrackImage": "http://localhost:5221/images/638261702562770780.jpg",
+  "Genre": "Hip Hop",
+  "Duration": "00:02:28.2167187",
+  "DurationInSec": 148,
+  "Plays": 0,
+  "ArtistId": {
+    "$oid": "64bfa64fb939d2649c27e759"
+  },
+  "CreatedDate": null,
+  "DurationInMilliSec": 148000
+},
+{
+  "_id": {
+    "$oid": "64c6f50b6324d7681f067760"
+  },
+  "Title": "Wouldn’t Leave",
+  "Song": "http://localhost:5221/tracks/638263608576213880.mp3",
+  "Artist": "Kanye West",
+  "TrackImage": "http://localhost:5221/images/638263608576516320.jpg",
+  "Genre": "Hip Hop",
+  "Duration": "00:02:28.2167187",
+  "DurationInSec": 148,
+  "Plays": 0,
+  "ArtistId": {
+    "$oid": "64bfa64fb939d2649c27e759"
+  },
+  "CreatedDate": {
+    "$date": "2023-07-30T23:40:59.028Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "64cc5060c123a2cfdfe2dff3"
+  },
+  "Title": "Last Last",
+  "Song": "http://localhost:5221/tracks/638267119193418580.mp3",
+  "Artist": "Burna Boy",
+  "TrackImage": "http://localhost:5221/images/638267119193689330.jpeg",
+  "Genre": "Afro",
+  "Duration": "00:02:54.3560000",
+  "DurationInSec": 174,
+  "DurationInMilliSec": 0,
+  "Plays": 0,
+  "ArtistId": {
+    "$oid": "64bfa64fb939d2649c27e759"
+  },
+  "CreatedDate": {
+    "$date": "2023-08-04T01:12:00.599Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "64cffd08511c7d058eee2972"
+  },
+  "Title": "Big 7",
+  "Song": "http://localhost:5221/tracks/638269527278972970.mp3",
+  "Artist": "Burna Boy",
+  "TrackImage": "http://localhost:5221/images/638269527279111250.jpeg",
+  "Genre": "Afro",
+  "Duration": "00:02:31.9137500",
+  "DurationInSec": 151,
+  "DurationInMilliSec": 0,
+  "Plays": 0,
+  "ArtistId": {
+    "$oid": "64bfa64fb939d2649c27e759"
+  },
+  "CreatedDate": {
+    "$date": "2023-08-06T20:05:28.024Z"
+  }
+}]

@@ -26,15 +26,15 @@ const PlayBar = ({tracks}:any) => {
 
 
   useEffect(() => {
+    
     fetch('http://localhost:5221/api/current',{
       credentials: "include",
       mode: "cors"
     })
       .then((res) => res.json())
       .then((response) => {
-      
         setData(response.tracks[currentPlay])
-        console.log("check me",response.tracks[currentPlay])
+   
         setLoading(false)
         if(audioRef.current){
                   audioRef.current.currentTime = 0
@@ -52,10 +52,6 @@ const PlayBar = ({tracks}:any) => {
  
       
   }, [trackAdded, currentPlay])
-
-
-  console.log(currentPlay)
-
 
      const [mute , setMute]= useState(false)
      const [volume , setVolume]= useState(0.5)

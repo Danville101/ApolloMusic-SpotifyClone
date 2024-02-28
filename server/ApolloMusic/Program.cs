@@ -13,9 +13,6 @@ var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 // Add services to the container.
 builder.Services.AddHttpLogging(options =>
 {
-    options.LoggingFields = HttpLoggingFields.RequestPath;
-
-
     ; options.RequestBodyLogLimit = 4096; // default is 32k options.ResponseBodyLogLimit = 4096; // default is 32k
 });
 
@@ -27,7 +24,6 @@ builder.Services.Configure<ApolloMusicDatabaseSetting>(
   builder.Services.Configure<ApolloMusicDatabaseSetting>(options =>
         {
             options.ConnectionString = Environment.GetEnvironmentVariable("MONGODB_URI");
-            // other settings...
         });
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -48,7 +44,10 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       policy =>
                       {
-                          policy.WithOrigins("http://localhost:3000").AllowAnyHeader()
+                          policy.WithOrigins("http://localhost:3000", "http://client"
+                          
+                          
+                          ).AllowAnyHeader()
                                                   .AllowAnyMethod().AllowCredentials();
                       });
 });
@@ -152,8 +151,7 @@ app.MapControllers();
 
 Console.WriteLine(Environment.GetEnvironmentVariable("MONGODB_URI"));
 
-var host = "http://*:5221"; // if not wildcard your in TROUBLE!!!!!!
-var hostLocal = "http://localhost:5221";
+var host = "http://*:5221"; 
 
 app.Run(host);
 

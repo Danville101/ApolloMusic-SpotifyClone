@@ -14,6 +14,11 @@ export function middleware(req: NextRequest, res: NextResponse){
      if(access){
       NextResponse.json({"Logged":"True"})
      }
+
+     if(!access && !req.url.includes("login") && !req.url.includes("signup")){
+      return NextResponse.rewrite(new URL("/login", req.url))
+
+     }
     
 
      return NextResponse.next();

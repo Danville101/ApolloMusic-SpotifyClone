@@ -1,0 +1,145 @@
+[{
+  "_id": {
+    "$oid": "64c84861cb00ae017f180d40"
+  },
+  "Tracks": [
+    {
+      "_id": "64c6f50b6324d7681f067760",
+      "Artist": "Kanye West",
+      "ArtistId": "64bfa64fb939d2649c27e759",
+      "CreatedDate": "2023-07-30T23:40:59.028+00:00",
+      "Duration": "00:02:28.2167187",
+      "DurationInSec": 148,
+      "Genre": "Hip Hop",
+      "Plays": 0,
+      "Song": "http://localhost:5221/tracks/638263608576213880.mp3",
+      "Title": "Wouldn’t Leave",
+      "TrackImage": "http://localhost:5221/images/638263608576516320.jpg"
+    }
+  ],
+  "UpdatedDate": {
+    "$date": "2023-07-31T23:41:14.159Z"
+  },
+  "UserId": {
+    "$oid": "64bc08e1cf51e57b5e735bf7"
+  },
+  "CreatedDate": {
+    "$date": "2023-07-31T23:41:14.159Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "64c8c117eb23732acdcc1817"
+  },
+  "Tracks": [
+    {
+      "_id": {
+        "$oid": "64c6f50b6324d7681f067760"
+      },
+      "Title": "Wouldn’t Leave",
+      "Song": "http://localhost:5221/tracks/638263608576213880.mp3",
+      "Artist": "Kanye West",
+      "TrackImage": "http://localhost:5221/images/638263608576516320.jpg",
+      "Genre": "Hip Hop",
+      "Duration": "00:02:28.2167187",
+      "DurationInSec": 148,
+      "Plays": 0,
+      "ArtistId": {
+        "$oid": "64bfa64fb939d2649c27e759"
+      },
+      "CreatedDate": {
+        "$date": "2023-07-30T23:40:59.028Z"
+      }
+    }
+  ],
+  "UserId": {
+    "$oid": "64c8c117eb23732acdcc1816"
+  },
+  "CreatedDate": {
+    "$date": "2023-08-01T09:01:12.099Z"
+  },
+  "UpdatedDate": {
+    "$date": "2023-08-01T09:57:21.141Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "64c911173a487b00cc2f36e7"
+  },
+  "Tracks": [
+    {
+      "_id": {
+        "$oid": "64cc5060c123a2cfdfe2dff3"
+      },
+      "Title": "Last Last",
+      "Song": "http://localhost:5221/tracks/638267119193418580.mp3",
+      "Artist": "Burna Boy",
+      "TrackImage": "http://localhost:5221/images/638267119193689330.jpeg",
+      "Genre": "Afro",
+      "Duration": "00:02:54.3560000",
+      "DurationInSec": 174,
+      "DurationInMilliSec": 0,
+      "Plays": 0,
+      "ArtistId": {
+        "$oid": "64bfa64fb939d2649c27e759"
+      },
+      "CreatedDate": {
+        "$date": "2023-08-04T01:12:00.599Z"
+      }
+    }
+  ],
+  "UserId": {
+    "$oid": "64c911163a487b00cc2f36e6"
+  },
+  "CreatedDate": {
+    "$date": "2023-08-01T14:05:11.238Z"
+  },
+  "UpdatedDate": {
+    "$date": "2024-02-28T17:09:35.018Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "64d7ac0b62725cc86ecb22b8"
+  },
+  "Tracks": [],
+  "UserId": {
+    "$oid": "64d7ac0a62725cc86ecb22b7"
+  },
+  "CreatedDate": {
+    "$date": "2023-08-12T15:58:02.999Z"
+  },
+  "UpdatedDate": {
+    "$date": "2023-08-12T15:58:02.999Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "64d7b19862725cc86ecb22ba"
+  },
+  "Tracks": [],
+  "UserId": {
+    "$oid": "64d7b19862725cc86ecb22b9"
+  },
+  "CreatedDate": {
+    "$date": "2023-08-12T16:21:44.387Z"
+  },
+  "UpdatedDate": {
+    "$date": "2023-08-12T16:21:44.387Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "64d7b1b462725cc86ecb22bb"
+  },
+  "Tracks": [],
+  "UserId": {
+    "$oid": "64d7b19862725cc86ecb22b9"
+  },
+  "CreatedDate": {
+    "$date": "2023-08-12T16:22:12.933Z"
+  },
+  "UpdatedDate": {
+    "$date": "2023-08-12T16:22:12.933Z"
+  }
+}]

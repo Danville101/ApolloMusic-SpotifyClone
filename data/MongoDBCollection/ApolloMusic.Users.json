@@ -1,0 +1,78 @@
+[{
+  "_id": {
+    "$oid": "64bc08e1cf51e57b5e735bf7"
+  },
+  "Username": "Dani101z",
+  "Email": "danvill@gmail.com",
+  "Password": "$2a$11$ZLIcbdoXCDH1r7qP56fMsOFaz2eVasFd6QEkJxyvSdNok9HqpnOkm",
+  "Birthday": {
+    "$date": "2023-07-22T15:37:58.230Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "64bc6610885a39862a8e306c"
+  },
+  "Username": "Makr101",
+  "Email": "Mark@mai.com",
+  "Password": "$2a$11$QQAtK7qBdHG29cSctte7IOvkIOP4r7/oYG4RrKx8zp/J7shwf9Efe",
+  "Birthday": {
+    "$date": "2023-07-22T23:27:54.503Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "64c8c117eb23732acdcc1816"
+  },
+  "Username": "Kyrie22",
+  "Email": "Kyrie@gmial.com",
+  "Password": "$2a$11$sQ/ctaQLgVyFeKw8sf.iMu8NVSpy8wBbTlNlvbGXkYdCL0q7YZ2W2",
+  "Birthday": {
+    "$date": "2023-08-01T08:22:58.088Z"
+  },
+  "CreatedDate": null
+},
+{
+  "_id": {
+    "$oid": "64c911163a487b00cc2f36e6"
+  },
+  "Username": "mark",
+  "Email": "monica.ards@gmail.com",
+  "Password": "$2a$11$Po/vZRm3QCMmH1BAyGj/9.nUHi4fSrgVF6yuGz5y0VFUO71aFvjlm",
+  "Birthday": {
+    "$date": {
+      "$numberLong": "-2077488000000"
+    }
+  },
+  "CreatedDate": {
+    "$date": "2023-08-01T14:05:10.893Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "64d7ac0a62725cc86ecb22b7"
+  },
+  "Username": "oo",
+  "Email": "",
+  "Password": "$2a$11$TvXOOcsN9a19o3ag3f6zPeGeafZIPqbd.hDGMiLpzlvSRyOOzoz6K",
+  "Birthday": {
+    "$date": "1992-01-01T00:00:00.000Z"
+  },
+  "CreatedDate": {
+    "$date": "2023-08-12T15:58:02.669Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "64d7b19862725cc86ecb22b9"
+  },
+  "Username": "jfj",
+  "Email": "dan@gmail.com",
+  "Password": "$2a$11$.6pf66BjJ8SHM/FN.UiBtuqJgT4.QH62woHkLi2NIqDZANZ5G2NFO",
+  "Birthday": {
+    "$date": "1992-01-01T00:00:00.000Z"
+  },
+  "CreatedDate": {
+    "$date": "2023-08-12T16:21:44.108Z"
+  }
+}]

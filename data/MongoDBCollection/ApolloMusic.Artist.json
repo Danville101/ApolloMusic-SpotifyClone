@@ -1,0 +1,27 @@
+[{
+  "_id": {
+    "$oid": "64c2f911953fc87c6d18f2b9"
+  },
+  "Name": "Raga B",
+  "CoverImage": "http://localhost:5221/images/638260997459690330.jpg",
+  "Listens": 0,
+  "CreatedDate": null
+},
+{
+  "_id": {
+    "$oid": "64c40a2992402194a4fd844c"
+  },
+  "Name": "Kanye West",
+  "CoverImage": "http://localhost:5221/images/638261696558320590.jpg",
+  "Listens": 0,
+  "CreatedDate": null
+},
+{
+  "_id": {
+    "$oid": "64cc5060c123a2cfdfe2dff2"
+  },
+  "Name": "Burna Boy",
+  "CoverImage": "http://localhost:5221/images/638267119193689330.jpeg",
+  "Listens": 0,
+  "CreatedDate": null
+}]

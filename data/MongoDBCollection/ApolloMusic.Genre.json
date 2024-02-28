@@ -1,0 +1,42 @@
+[{
+  "_id": {
+    "$oid": "64c647ef067eb9e7d0be4761"
+  },
+  "Name": "Hip Hop"
+},
+{
+  "_id": {
+    "$oid": "64c64819067eb9e7d0be4762"
+  },
+  "Name": "Dancehall"
+},
+{
+  "_id": {
+    "$oid": "64c659bfeb4679476c34dd10"
+  },
+  "Name": "Pop"
+},
+{
+  "_id": {
+    "$oid": "64c65a16eb4679476c34dd11"
+  },
+  "Name": "Rock"
+},
+{
+  "_id": {
+    "$oid": "64c65a1feb4679476c34dd12"
+  },
+  "Name": "R&B"
+},
+{
+  "_id": {
+    "$oid": "64c65a3beb4679476c34dd13"
+  },
+  "Name": "Soul"
+},
+{
+  "_id": {
+    "$oid": "64c65a61eb4679476c34dd14"
+  },
+  "Name": "Afro"
+}]

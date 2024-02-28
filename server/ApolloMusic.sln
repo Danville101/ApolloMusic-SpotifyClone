@@ -5,8 +5,6 @@ VisualStudioVersion = 25.0.1706.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApolloMusic.Api", "ApolloMusic\ApolloMusic.Api.csproj", "{2628919C-3D16-430F-B0A0-A4330EDC14FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApolloMusic.Test", "ApolloMusic.Test\ApolloMusic.Test.csproj", "{8D589928-454D-4F9C-9A16-2DB482E65F49}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
