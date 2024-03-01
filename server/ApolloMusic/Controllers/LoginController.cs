@@ -64,7 +64,7 @@ namespace ApolloMusic.Api.Controllers
             }
             else
             {
-                return BadRequest();
+                return BadRequest("Incorrect Username or Password ");
             }
 
         }

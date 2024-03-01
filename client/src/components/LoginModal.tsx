@@ -31,7 +31,7 @@ objectFit: 'cover',
 </div>
 
 <div className='flex flex-col items-center space-y-8'>
-     <p className='text-4xl text-center'>Start listening with a free Spotify account</p>
+     <p className='text-4xl text-center'>Start listening with a free Spotify Clone account</p>
 
      <div className='flex flex-col items-center space-y-4'>
           <Link href={"/signup"}>         <button type='submit' className='w-40 px-1 py-4 text-black duration-500 rounded-full bg-brandColor hover:opacity-70 active:scale-90 bottom-4 hover:cursor-pointer'  data-testid="submit" >Sign up for free</button>

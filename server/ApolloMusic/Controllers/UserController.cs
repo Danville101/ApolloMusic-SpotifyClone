@@ -68,7 +68,7 @@ namespace ApolloMusic.Api.Controllers
             var existUser = await _userRepo.GetByEmailAsync(newUser.Email);
             if (existUser != null)
             {
-                return BadRequest("User already exist");
+                return BadRequest("User email already exist");
             }
 
             if (newUser.Password == newUser.Password2 && existUser is null)

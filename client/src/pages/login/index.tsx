@@ -7,6 +7,7 @@ const Login = () => {
 
      const [email ,setEmail]= useState("")
      const [password ,setPassword]= useState("")
+     const [errorMessage, setErrorMessage]= useState("")
    
       
     const login = (e:any)=>{
@@ -26,28 +27,41 @@ const Login = () => {
           
                
           })
-      }).then(response=>{
+      }).then(async response=>{
        
           if(response.status <300){ 
             localStorage.setItem("PlayerBar", "active")
           router.push('/')}
-          router.reload()
+          else{
+            const data:any =  await response.json()
+            
+            setErrorMessage(data)
+            setTimeout(()=>{
+              setErrorMessage("")
+            },4000)
+          }
+
         })
 
     }
   return (
     <div className='bg-[#181818] h-screen w-creen flex flex-col  items-center space-y-12 pb-20'>
      <div className="flex items-center w-screen px-4 bg-black h-14">
-          <Image src={"/spotify.svg"} width={35} height={35} alt=""/>
      </div>
 
      <div className='w-[50vw] h-full bg-black rounded-xl flex flex-col items-center py-12 mb-12'>
-          <p className='text-5xl'>Log in to Spotify</p>
+          <p className='text-5xl'>Log in to Spotify Clone</p>
 
           <form onSubmit={login}
      className='flex flex-col mt-5 space-y-6 rounded-xl md:space-y-5'>
-
+    <div className="flex items-center justify-center w-full">
+      <p className={`text-red-200 rounded-md ${errorMessage.length > 0? "scale-100":"scale-0"} duration-700 `} >
+        {errorMessage}
+      </p>
+      
+      </div>
         <div className='flex flex-col'>
+      
                 <p>Email</p>
         <input className='py-4 pl-2 border border-white/50 rounded-md outline-none w-80 bg-[#121212] ' value={email} onChange={(e)=>setEmail(e.target.value)}  type="email" placeholder='Email'/>
      
@@ -56,7 +70,7 @@ const Login = () => {
           <div className='flex flex-col'>
 
            <p>Password</p>
-        <input className='py-4 pl-2 border-2 rounded-md outline-none w-80 bg-[#E8F0FE] text-black'  value={password} onChange={(e)=>setPassword(e.target.value)}  type="password" placeholder='Password' data-testid="Password1"/>
+        <input className='py-4 pl-2 border-2 rounded-md outline-none w-80 bg-[#E8F0FE] text-black' required minLength={5}  value={password} onChange={(e)=>setPassword(e.target.value)}  type="password" placeholder='Password' data-testid="Password1"/>
      
           </div>
       
