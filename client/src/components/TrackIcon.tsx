@@ -43,7 +43,7 @@ const TrackIcon = ({track}:TrackProp) => {
    }).then((res)=>{
     setTrackAdded(info.title)
     localStorage.setItem("CurrentTime", "0") 
-    localStorage.setItem("MemoTime", "0") 
+
     localStorage.setItem("play","true")
     
          })

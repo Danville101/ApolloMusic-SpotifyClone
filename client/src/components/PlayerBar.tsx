@@ -23,6 +23,20 @@ const PlayBar = ({tracks}:any) => {
   const router = useRouter()
   const [currentPlay, setCurrentPlay]=useState(0)
   
+  
+  useEffect(() => {
+
+    const reloadHandler=()=>{
+      if(audioRef.current){
+        audioRef.current.currentTime = Number(localStorage.getItem("CurrentTime"))
+}
+    }
+ //  router.events.off("routeChangeComplete", reloadHandler)
+
+   window.addEventListener("loadeddata", reloadHandler)
+
+  }, [])
+  
 
 
   useEffect(() => {
@@ -46,8 +60,8 @@ const PlayBar = ({tracks}:any) => {
       
 
       }).then(()=>{
-        setAcutallTime(Number(localStorage.getItem('CurrentTime')))
-        setIntialStart(Number(localStorage.getItem('CurrentTime')))    ///Fixed raloding issued
+      setAcutallTime(Number(localStorage.getItem('CurrentTime')))
+   setIntialStart(Number(localStorage.getItem('CurrentTime')))    ///Fixed raloding issued
       })
  
       
@@ -210,7 +224,7 @@ const PlayBar = ({tracks}:any) => {
 
    
  const [milli, setMilli] = useState(0)
-
+/*Start from here */
   
  useEffect(() => {
   // This function will be called after the component is mounted
@@ -219,7 +233,7 @@ const PlayBar = ({tracks}:any) => {
     if(audioRef.current){
       
       audioRef.current.play()
-     audioRef.current.currentTime = Number(localStorage.getItem("CurrentTime"))
+    // audioRef.current.currentTime = Number(localStorage.getItem("CurrentTime"))
       
     }
     setPlay(true)
@@ -228,7 +242,7 @@ const PlayBar = ({tracks}:any) => {
   if(localStorage.getItem("play") == "false"){
     if(audioRef.current){
       audioRef.current.pause()
-      audioRef.current.currentTime = Number(localStorage.getItem("CurrentTime"))
+      //audioRef.current.currentTime = Number(localStorage.getItem("CurrentTime"))
     
     }
       setPlay(false)

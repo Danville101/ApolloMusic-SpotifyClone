@@ -62,7 +62,7 @@ const Search = () => {
 
      <div className='grid grid-cols-2 gap-4 mt-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6'>
 { genres.map((e:any,i:number)=>(
-<Link href={`/genre/${e.name}`} className={`w-40 h-40   rounded-md flex pt-4 px-4 text-2xl`} key={i} style={{backgroundColor: colourPicker[e.name]}}>
+<Link href={`/genre/${e.name}`} className={` w-40 xl:w-[10vw] h-40 2xl:h-64    rounded-md flex pt-4 px-4 text-2xl`} key={i} style={{backgroundColor: colourPicker[e.name]}}>
    <p>{e.name}</p>
 
 </Link>

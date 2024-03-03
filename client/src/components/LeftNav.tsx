@@ -6,7 +6,7 @@ import {BiSearch} from "react-icons/bi"
 import{VscLibrary} from "react-icons/vsc"
 import Link from 'next/link'
 import { Player } from '../../Audio'
-
+import Image from 'next/image'
 const LeftNav = () => {
 
       
@@ -67,24 +67,33 @@ player.Seek(seek)
 
 
       
-      <div className='flex flex-col space-y-4 bg-[#252525] rounded-md -mx-2 px-4 h-32 py-2'>
-   <div className='flex flex-col space-y-2'>
-          <p className='text-sm font-semibold'>Create your first playlist</p>
+      <div className='flex flex-col space-y-4 bg-[#252525] rounded-md -mx-2 px-4 h-32 py-2 justify-center items-center  xl:justify-normal xl:items-start'>
+   <div className='flex-col hidden space-y-2 xl:flex'>
+          <p className='text-sm font-semibold '>Create your first playlist</p>
       <p className='text-xs'>It&apos;s easy, we&apos;ll help you</p>
    </div>
 
 
-      <button className='w-32 py-2 text-sm text-black bg-white rounded-full hover:scale-110 '>Create playlist</button>
+      <button className='hidden w-32 py-2 text-sm text-black bg-white rounded-full hover:scale-110 xl:block'>Create playlist</button>
+
+
+      <button className='flex items-center justify-center text-sm text-black bg-white rounded-full w-14 h-14 hover:scale-110 xl:hidden'>
+        <Image src={"/playlist.svg"} width={40} height={40} alt='' />
+      </button>
       </div>
       
-      <div className='flex flex-col space-y-4 bg-[#252525] rounded-md -mx-2 px-4 h-32 py-2 '>
-   <div className='flex flex-col space-y-2'>
-          <p className='text-sm font-semibold'>Let&apos;s find some podcast to follow</p>
+      <div className='flex flex-col space-y-4 bg-[#252525] rounded-md -mx-2 px-4 h-32 py-2 justify-center items-center  xl:justify-normal xl:items-start '>
+   <div className='flex-col hidden space-y-2 xl:flex'>
+          <p className='text-sm font-semibold'>Let&apos;s find some podcasts</p>
       <p className='text-xs'>We&apos;ll keep you updated on new episods</p>
    </div>
 
 
-      <button className='py-2 text-sm text-black bg-white rounded-full w-36 hover:scale-110 '>Browse podcasts</button>
+      <button className='hidden w-20 py-2 text-sm text-black bg-white rounded-full xl:w-36 hover:scale-110 xl:block'>Browse podcasts</button>
+
+      <button className='flex items-center justify-center text-sm text-black bg-white rounded-full w-14 h-14 hover:scale-110 xl:hidden'>
+        <Image src={"/podcast.svg"} width={28} height={28} alt='' />
+      </button>
       </div>
 
 
