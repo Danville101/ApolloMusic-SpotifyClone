@@ -1,11 +1,49 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import MainLayout from '../../layout/MainLayout'
 import Image from 'next/image'
 import {BsPlayFill} from "react-icons/bs"
 
 import { NextPageContext } from 'next'
 import { useRouter } from 'next/router'
+import {CiClock2} from "react-icons/ci"
+
+
+import { MusicContext } from '../../context/AudioContext'
 const Artist = () => {
+
+  const { trackAdded , setTrackAdded}:any = useContext(MusicContext)
+const [info, setInfo]=useState<any>("")
+
+     
+ const Addtrack = (e:any)=>{
+
+    e.preventDefault()
+      fetch("http://localhost:5221/api/Current",{
+         method: 'PUT',
+         mode: 'cors',
+         credentials: 'include',
+         headers: {
+           'Accept': 'application/json',
+           'Content-Type': 'application/json',
+         },
+         body: JSON.stringify({
+           tracks:[
+            info
+           ]
+         })
+     }).then((res)=>{
+      setTrackAdded(info.title)
+      localStorage.setItem("CurrentTime", "0") 
+      localStorage.setItem("MemoTime", "0") 
+      localStorage.setItem("play","true")
+           })
+
+  
+
+
+   }
+
+
 
   const router = useRouter()
   
@@ -13,6 +51,7 @@ const Artist = () => {
   const [artist, setArtist] = useState<any>([])
   const [loading, setLoading ] = useState(true)
 
+  const [tracks, setTracks]= useState([])
   const id = router.query.id
 
   useEffect(()=>{
@@ -22,9 +61,22 @@ const Artist = () => {
 
     setArtist(data)
     setLoading(false)
+    return data
+    }).then(async(res)=>{
+
+      
+      fetch( `http://localhost:5221/api/tracksByArtist/${res.name}`).then(async(res)=>{
+        let result = await res.json()
+        setTracks(result)
+   
+      })
+      
     })
      
-  })
+  },[id])
+
+
+
 
   const bgStyle = {
     backgroundImage: `url(${artist.coverImage})`,
@@ -42,14 +94,14 @@ const Artist = () => {
     <MainLayout>
 
 <div
-  className="flex   bg-fixed    bg-no-repeat bg-cover  bg-center  h-[50vh]  pl-20  "
+  className="flex   bg-fixed    bg-no-repeat bg-cover  bg-center  h-[50vh]  pl-20   "
   style={bgStyle}
 >
  
 </div> 
 <div className="pl-5 text-6xl font-bold text-white rounded-xl -translate-y-52">
   <p className='text'>
-        Buss Head
+        {artist.name}
   </p>
 
   </div>
@@ -57,81 +109,89 @@ const Artist = () => {
 
 <div className='px-4 -mt-8'>
   
-   <div className='flex items-center space-x-2'>
-  <button className='flex items-center justify-center w-12 h-12 rounded-full bg-brandColor'>
-      <BsPlayFill className="w-8 h-8 text-black"/>
-     </button>
 
-     <button className='px-4 py-2 text-sm border rounded-full border-white/50'>
-      Follow
-     </button>
-  </div>
-<div className="max-w-lg ">
+
+
+
+<div>
+<div className='px-4 -mt-8'>
+        
+        <div className='flex items-center space-x-2'>
+       <button className='flex items-center justify-center w-12 h-12 rounded-full bg-brandColor'>
+           <BsPlayFill className="w-8 h-8 text-black"/>
+          </button>
+     
+          <button className='px-4 py-2 text-sm border rounded-full border-white/50'>
+           Follow
+          </button>
+       </div>
+
+ <div className='w-full items-center flex border-b border-[#4C4C50]   pb-2 px-4 mb-4 mt-12'>
+    <p className='text-sm' >#</p>
+    <span className='w-[30vw]  flex ml-4'>
+            <p className='text-sm'>Title</p>
+    </span>
+    <span className='w-[10vw] flex items-center justify-center'>
+            <p className='text-sm '>Album</p>
+    </span>
+ 
+
+    <span className='w-[30vw] flex items-center justify-center'>
+            <CiClock2/>
+    </span>
+    <p className='text-sm' >Date added</p>
+ </div>
+{tracks.map((e:any,i:number)=>(
+ 
+<div className='w-full items-center flex  group hover:bg-[#b3b3b3]/10 rounded-xl pb-2 px-4 py-2 hover:cursor-pointer' key={i}  >
+    <p className='w-6 h-6 group-hover:hidden' >{i+1}</p>
+    <BsPlayFill className="hidden w-6 h-6 text-white group-hover:block" onMouseEnter={()=>setInfo(e)} onClick={Addtrack} />
+    <div className='w-[30vw]  flex items-center space-x-2'>
+    <div className="relative flex items-center justify-center flex-shrink-0 w-10 h-10 mx-2 bg-black lg:mx-0 rounded-xl">
+
+<Image src={e.trackImage}  quality={100}
+fill
+sizes="100vw"
+style={{
+objectFit: 'cover',
+}} alt="trackImage " className='rounded-md'/>
+
+
+</div>
+<div className='flex flex-col '>
+   <p className='text-sm hover:underline' >{e.title}</p> 
+   <p className='text-xs font-thin hover:underline'  >
+    {e.artist}
+   </p>
+    
+</div>
+         
+    
+    
+    </div>
+    <div className='w-[10vw] flex items-center justify-center'>
+            <p className='text-sm'>Album</p>
+    </div>
+
+    <span className='w-[30vw] flex items-center justify-center'>
+    <p className='text-sm text-left' >{String(e.duration).substring(3,8)}</p>
+    </span>
+
+    <p className='text-sm' >{String(e.createdDate).substring(0,10)}</p>
+ </div>
+
+))}
+ 
+
+
+ 
+     </div>
+</div>
   
  
-  <p className="mt-20 mb-4">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat a
-    magna non varius. Proin leo felis, euismod non porta eget, varius sit amet
-    sapien. Maecenas in nulla at leo convallis consectetur id a sapien. Nulla
-    nec pulvinar nisi. Vivamus non facilisis lacus, et volutpat libero. Nulla ac
-    odio aliquam, accumsan arcu ut, lacinia est. Nulla eu sem elit. Fusce nec
-    laoreet sem, semper molestie libero.
-  </p>
-  <p className="mb-4">
-    Ut sagittis lacus consequat accumsan venenatis. Sed sollicitudin, lectus et
-    fringilla ultrices, dolor nisi scelerisque tortor, vel finibus magna massa
-    non nunc. Phasellus massa quam, egestas a nisl sed, porta volutpat metus.
-    Nunc sed elit ac tellus tempor cursus. Suspendisse potenti. Vestibulum
-    varius rutrum nisl nec consequat. Suspendisse semper dignissim sem viverra
-    semper. Nulla porttitor, purus nec accumsan pharetra, nisi dolor condimentum
-    ipsum, id consequat nulla nunc in ligula.
-  </p>
-  <p className="mb-12">
-    Nulla pharetra lacinia nisi, vitae mollis tellus euismod id. Mauris porta
-    dignissim hendrerit. Cras id velit varius, fermentum lectus vitae, ultricies
-    dolor. In bibendum rhoncus purus vel rutrum. Nam vulputate imperdiet
-    fringilla. Donec blandit libero massa. Suspendisse dictum diam mauris, vitae
-    fermentum dolor tincidunt in. Pellentesque sollicitudin venenatis dolor,
-    vitae scelerisque elit ultrices eu. Donec eget sodales risus, quis dignissim
-    neque.
-  </p>
-</div>
-<section
-  className="container flex items-center justify-center h-screen m-auto mb-12 bg-fixed bg-center bg-cover custom-img"
->
-  <div className="p-5 text-2xl text-white bg-purple-300 bg-opacity-50 rounded-xl">
-    Parralax inline
-  </div>
-</section>
-<div className="max-w-lg m-auto">
-  <p className="mb-4">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat a
-    magna non varius. Proin leo felis, euismod non porta eget, varius sit amet
-    sapien. Maecenas in nulla at leo convallis consectetur id a sapien. Nulla
-    nec pulvinar nisi. Vivamus non facilisis lacus, et volutpat libero. Nulla ac
-    odio aliquam, accumsan arcu ut, lacinia est. Nulla eu sem elit. Fusce nec
-    laoreet sem, semper molestie libero.
-  </p>
-  <p className="mb-4">
-    Ut sagittis lacus consequat accumsan venenatis. Sed sollicitudin, lectus et
-    fringilla ultrices, dolor nisi scelerisque tortor, vel finibus magna massa
-    non nunc. Phasellus massa quam, egestas a nisl sed, porta volutpat metus.
-    Nunc sed elit ac tellus tempor cursus. Suspendisse potenti. Vestibulum
-    varius rutrum nisl nec consequat. Suspendisse semper dignissim sem viverra
-    semper. Nulla porttitor, purus nec accumsan pharetra, nisi dolor condimentum
-    ipsum, id consequat nulla nunc in ligula.
-  </p>
-  <p className="mb-4">
-    Nulla pharetra lacinia nisi, vitae mollis tellus euismod id. Mauris porta
-    dignissim hendrerit. Cras id velit varius, fermentum lectus vitae, ultricies
-    dolor. In bibendum rhoncus purus vel rutrum. Nam vulputate imperdiet
-    fringilla. Donec blandit libero massa. Suspendisse dictum diam mauris, vitae
-    fermentum dolor tincidunt in. Pellentesque sollicitudin venenatis dolor,
-    vitae scelerisque elit ultrices eu. Donec eget sodales risus, quis dignissim
-    neque.
-  </p>
-</div>
-</div>
+  
+
+</div> 
 
 
 

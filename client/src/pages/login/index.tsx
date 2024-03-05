@@ -48,9 +48,9 @@ const Login = () => {
     <div className='bg-[#181818] h-screen w-creen flex flex-col  items-center space-y-12 pb-20'>
      <div className="flex items-center w-screen px-4 bg-black h-14">
      </div>
-
-     <div className='w-[50vw] h-full bg-black rounded-xl flex flex-col items-center py-12 mb-12'>
-          <p className='text-5xl'>Log in to Spotify Clone</p>
+<div className="flex items-center justify-center w-full h-full">
+  <div className='w-[50vw] h-[60vh] lg:bg-black rounded-xl flex flex-col items-center py-12 mb-12'>
+          <p className='text-2xl lg:text-5xl'>Log in to Spotify Clone</p>
 
           <form onSubmit={login}
      className='flex flex-col mt-5 space-y-6 rounded-xl md:space-y-5'>
@@ -87,6 +87,8 @@ const Login = () => {
      </form>
           
      </div>
+</div>
+     
 
     </div>
   )

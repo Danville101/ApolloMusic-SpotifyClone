@@ -26,16 +26,22 @@ const PlayBar = ({tracks}:any) => {
   
   useEffect(() => {
 
-    const reloadHandler=()=>{
+
+  if(audioRef.current){
+    
+    audioRef.current.addEventListener("loadeddata",()=>{
       if(audioRef.current){
-        audioRef.current.currentTime = Number(localStorage.getItem("CurrentTime"))
-}
-    }
- //  router.events.off("routeChangeComplete", reloadHandler)
+           audioRef.current.currentTime = Number(localStorage.getItem("CurrentTime"))
+      audioRef.current.play()
+      }
 
-   window.addEventListener("loadeddata", reloadHandler)
+      
+    })
 
-  }, [])
+    
+  }
+
+  },[audioRef])
   
 
 

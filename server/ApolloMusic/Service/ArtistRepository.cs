@@ -62,5 +62,7 @@ namespace ApolloMusic.Api.Service
            return  await _artistCollection.Find(_ => true).ToListAsync();
 
         }
+
+    
     }
 }

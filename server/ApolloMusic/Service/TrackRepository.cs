@@ -43,6 +43,11 @@ namespace ApolloMusic.Service
 
          return  await _trackCollection.Find(x=>x.Genre == genre).ToListAsync();
       }
+
+
+          public async Task<List<Track?>> GetTracksByArtistAsync(string name){
+            return await _trackCollection.Find(x=>x.Artist == name ).ToListAsync();
+        }
 }   
     }
 

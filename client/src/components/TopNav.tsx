@@ -42,9 +42,6 @@ const TopNav = () => {
   
   const searchRef = useRef(null)
 
-
-
-
   
 
   const searchHandeler=(phrase:string)=>{
@@ -83,6 +80,7 @@ const TopNav = () => {
 
 <input className='bg-[#252525] h-10 text-xs font-light rounded-full pl-6 w-52 outline-none focus:outline-white hover:border hover:border-white/50 focus:border-none' placeholder='What do you want to listen to ?'
 onChange={(e)=>searchHandeler(e.target.value)}
+onMouseEnter={(e)=>{e.currentTarget.focus()}}
 value={router.query.phrase}
   ref={searchRef}
 />
@@ -129,8 +127,8 @@ value={router.query.phrase}
      </div>
     
    </div>
-   <div className={`absolute w-40 h-24  z-50 right-8 bg-[#282828] rounded-md flex items-center justify-center px-2 ${menuDrop? "":"hidden"}`}>
-    <button className='w-full py-2 hover:bg-[#696969] rounded-md ' onClick={logOut}>Log out</button>
+   <div className={`absolute w-40 h-24  z-50 right-8 bg-[#282828] rounded-md flex items-center justify-center px-2 mt-2 ${menuDrop? "":"hidden"}`}>
+    <button className='w-full py-2 hover:bg-[#696969] rounded-md text-sm' onClick={logOut}>Log out</button>
    </div>
     </div>
     

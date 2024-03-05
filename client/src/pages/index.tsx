@@ -44,7 +44,7 @@ export default function Home() {
            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 grid-rows-4 gap-4  mt-4 pb-28 md:pr-[10vw]'>
 
             {tracks.map((e:any,i:number)=>(
-            <div className="w-20" key={i}>
+            <div className="w-20 lg:w-40" key={i}>
                 <TrackIcon track={e} key={i}/>
             </div>
                

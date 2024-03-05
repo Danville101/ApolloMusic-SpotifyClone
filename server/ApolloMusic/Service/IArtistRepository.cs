@@ -9,6 +9,7 @@ namespace ApolloMusic.Api.Service
         Task<List<Artist>> GetAllAsync();
 
 		Task<Artist?> GetByNameAsync(string name);
+    
 
 		Task CreateAsync(Artist newArtist);
 

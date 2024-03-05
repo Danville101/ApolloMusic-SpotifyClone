@@ -188,5 +188,23 @@ namespace ApolloMusic.Api.Controllers
        return Ok(tracks);
         }
 
+        [Route("/api/tracksByArtist/{name}")]
+        [HttpGet]
+        public async Task<IActionResult> GetTaskByArtist(string name){
+
+
+         var tracks = await _trackRepo.GetTracksByArtistAsync(name);
+
+
+             return Ok(tracks);
+
+
+             }
+    
+
+
+
+        
+
     }
 }
