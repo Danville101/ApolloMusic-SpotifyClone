@@ -57,7 +57,7 @@ const TopNav = () => {
   }
   return (
     <div>
-       <div className='flex flex-col bg-black rounded-t-md bg-opacity-30'>
+       <div className='flex flex-col bg-black rounded-t-md bg-opacity-30 w-full lg:w-[101%]'>
      <div className='flex items-center justify-between p-4 '>
       <div className='flex items-center'>
        <div className='flex items-center justify-between w-20 h-auto'>

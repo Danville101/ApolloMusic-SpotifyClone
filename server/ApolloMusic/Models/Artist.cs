@@ -14,6 +14,8 @@ public class Artist
 
 		public string CoverImage { get; set; } = null;
 
+          public string LandscapeImage {get; set;} = null;
+
           public int Listens {get; set;}= 0;
 
 
@@ -33,6 +35,7 @@ public class ArtistRequestInPut
           public string Name { get; set; } = null;
 
 		public IFormFile Image { get; set; } = null;
+		public IFormFile LandscapeImage { get; set; } = null;
 	
 
 

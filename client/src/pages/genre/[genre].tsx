@@ -178,7 +178,7 @@ objectFit: 'cover',
      <p className='text-sm text-left' >{String(e.duration).substring(3,8)}</p>
      </span>
  
-     <p className='text-sm' >{String(e.createdDate).substring(0,10)}</p>
+     <p className='text-xs' >{String(e.createdDate).substring(0,10)}</p>
   </div>
 
 ))}

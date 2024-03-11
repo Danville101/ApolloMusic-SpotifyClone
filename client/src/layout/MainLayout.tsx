@@ -25,15 +25,15 @@ const MainLayout = ({children}:any) => {
 
 
     
-        <main className='bg-[#121212] rounded-md  w-[80vw] fixed left-[19vw]'>
+        <main className='bg-[#121212] rounded-md  lg:w-[80vw] fixed md:left-[19vw]  left-[11vw] w-full '>
         
-          <div className='fixed top-0 w-[80vw] z-50 '>
+          <div className='fixed top-0 w-[88vw] z-50 md:w-[80vw] '>
              <TopNav/>
           </div>
                 
 
            
- <div className='w-[80vw] h-screen overflow-scroll pb-40'>
+ <div className='w-[87vw] h-screen overflow-auto pb-40'>
     {children}
  </div>
 

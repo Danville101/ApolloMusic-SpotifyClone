@@ -23,14 +23,17 @@ namespace ApolloMusic.Api.Controllers
 
               
                     var imageFile =  await   WriteFile(newArtist.Image);
+                    var landscapeImage = await WriteFile(newArtist.LandscapeImage);
 
                var artist = new Artist{
                 Name = newArtist.Name,
             CoverImage = $"http://localhost:5221/images/{imageFile}",
+            LandscapeImage = $"http://localhost:5221/images/{landscapeImage}",
             Listens = 0
             };  
             
             await _artistRepository.CreateAsync(artist);
+            Console.WriteLine(artist);
 
              return Ok("Created");
 

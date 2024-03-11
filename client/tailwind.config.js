@@ -16,7 +16,7 @@ module.exports = {
       },
 
       colors:{
-        "brandColor":"#35D760"
+        "brandColor":"#7F00FF"
       }
     },
   },

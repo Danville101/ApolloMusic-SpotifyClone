@@ -79,7 +79,7 @@ const [info, setInfo]=useState<any>("")
 
 
   const bgStyle = {
-    backgroundImage: `url(${artist.coverImage})`,
+    backgroundImage: `url(${artist.landscapeImage})`,
 
   };
 

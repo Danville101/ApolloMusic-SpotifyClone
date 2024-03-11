@@ -72,8 +72,12 @@ const TrackIcon = ({track}:TrackProp) => {
 <div className='w-full px-4'>
 <div className='flex flex-col flex-wrap items-start mt-2 space-y-2'>
                  <p>{track.title}</p>
-              <p className='text-xs font-light text-left text-white/50 '>Peach djhbfdsibrfi fbjhds jhbdsjh fhjbdfjhdfbshsdb </p>   
+      
+                     <p className='text-xs font-light text-left text-white/50 '>Listen to <span className="font-bold text-white"> { track.artist }
+                </span> and others on <p className='text-brandColor/60  font-bold'>Spotify Clone</p>  </p>   
                 
+          
+           
      </div>
      
 
